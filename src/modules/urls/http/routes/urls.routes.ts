@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import UrlsController from '../controllers/UrlsController';
 
 const urlsRouter = Router();
