@@ -4,6 +4,6 @@ import UrlsController from '../controllers/UrlsController';
 const urlsRouter = Router();
 const urlsController = new UrlsController();
 
-urlsRouter.get('/', urlsController.index);
+urlsRouter.get('/:shortened', urlsController.show);
 
 export default urlsRouter;
