@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import routes from './routes';
+import '@shared/container';
 
 const app = express();
 
