@@ -9,16 +9,16 @@ interface IRequest {
 @injectable()
 class GetUrlSerivce {
   constructor(
-    @inject('urlsRepository')
+    @inject('UrlsRepository')
     private urlsRepository: UrlsRepository,
-  ) {}
+  ) { }
 
   public async execute({ shortened }: IRequest): Promise<Url> {
-    const url = this.urlsRepository.findByShortened(shortened);
+    const url = await this.urlsRepository.findByShortened(shortened);
 
     if (!url) {
       // To Do: Add exception class
-      throw new Error();
+      // throw new Error();
     }
 
     return url;
