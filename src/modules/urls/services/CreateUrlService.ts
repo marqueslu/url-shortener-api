@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import { inject, injectable } from 'tsyringe';
+
 import Url from '../infra/typeorm/entities/Url';
 import IUrlsRepository from '../repositories/IUrlsRepository';
 
@@ -12,7 +13,7 @@ class CreateUrlService {
   constructor(
     @inject('UrlsRepository')
     private urlsRepository: IUrlsRepository,
-  ) { }
+  ) {}
 
   public async execute({ original }: IRequest): Promise<Url> {
     const existentUrl = await this.urlsRepository.findByOriginalUrl(original);

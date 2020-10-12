@@ -1,4 +1,5 @@
 import { Repository, getRepository } from 'typeorm';
+
 import Url from '../entities/Url';
 import IUrlsRepository from '../../../repositories/IUrlsRepository';
 import ICreateUrlDTO from '../../../dtos/ICreateUrlDTO';
