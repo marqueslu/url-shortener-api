@@ -1,6 +1,6 @@
+import crypto from 'crypto';
 import { inject, injectable } from 'tsyringe';
 import Url from '../infra/typeorm/entities/Url';
-import IHashProvider from '../providers/interfaces/IHashProvider';
 import IUrlsRepository from '../repositories/IUrlsRepository';
 
 interface IRequest {
@@ -12,9 +12,6 @@ class CreateUrlService {
   constructor(
     @inject('UrlsRepository')
     private urlsRepository: IUrlsRepository,
-
-    @inject('HashProvider')
-    private hashProvider: IHashProvider,
   ) { }
 
   public async execute({ original }: IRequest): Promise<Url> {
@@ -24,7 +21,7 @@ class CreateUrlService {
       // throw an error
     }
 
-    const hash = await this.hashProvider.generateHash(10);
+    const hash = crypto.randomBytes(10).toString('hex');
 
     const url = await this.urlsRepository.create({
       original,
