@@ -5,5 +5,6 @@ const urlsRouter = Router();
 const urlsController = new UrlsController();
 
 urlsRouter.get('/:shortened', urlsController.show);
+urlsRouter.post('/', urlsController.create);
 
 export default urlsRouter;
